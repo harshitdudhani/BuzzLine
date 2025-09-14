@@ -27,7 +27,7 @@ async def handler(websocket):
         print(f"Client {websocket.remote_address} has been removed.")
 
 async def main():
-    async with websockets.serve(handler, "0.0.0.0", 8765):
+    async with websockets.serve(handler, "0.0.0.0", 8000):
         print("WebSocket server started on ws://<your-ip-address>:8765")
         await asyncio.Future()
 

@@ -190,7 +190,7 @@ export default function App() {
 
  useEffect(() => {
 
-  const ws = new WebSocket("wss://e9ed0f2848b7.ngrok-free.app");
+  const ws = new WebSocket("wss://b6650c36f726.ngrok-free.app");
 
   websocket.current = ws;
 
