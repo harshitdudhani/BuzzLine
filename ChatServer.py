@@ -2,6 +2,16 @@ import asyncio
 import websockets
 import json
 from datetime import datetime
+import os 
+import jwt 
+from aiohttp import web
+from google.oauth2 import credentials
+from google_auth_oauthlib.flow import Flow
+
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+REDIRECT_URI = "https://buzz-line-indol.vercel.app/"
+JWT_SECRET = 
 
 connected_clients = set()
 
@@ -28,7 +38,7 @@ async def handler(websocket):
 
 async def main():
     async with websockets.serve(handler, "0.0.0.0", 8000):
-        print("WebSocket server started on ws://<your-ip-address>:8000")
+        print("WebSocket server started on ws://172.16.0.2:8000")
         await asyncio.Future()
 
 if __name__ == "__main__":
