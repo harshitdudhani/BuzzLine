@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Importing pages based on your file structure
 import LoginPage from './pages/login_page';
 import AuthCallback from './pages/authcallback';
-import ChatPage from './pages/ChatPage'; // A necessary page for your app
-import HomePage from './pages/HomePage'; // A necessary page for your app
+import ChatPage from './pages/chatPage'; // A necessary page for your app
+import HomePage from './pages/homePage'; // A necessary page for your app
 
 function App() {
   return (
