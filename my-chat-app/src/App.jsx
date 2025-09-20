@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Importing pages with consistent lowercase paths to match filenames
-import LoginPage from './pages/loginpage';
-import AuthCallback from './pages/authcallback';
-import ChatPage from './pages/chatpage'; // Corrected from chatPage
-import HomePage from './pages/homepage'; // Corrected from homePage
+import LoginPage from './pages/loginpage.jsx';
+import AuthCallback from './pages/authcallback.jsx';
+import ChatPage from './pages/chatpage.jsx'; // Corrected from chatPage
+import HomePage from './pages/homepage.jsx'; // Corrected from homePage
 
 function App() {
   return (
