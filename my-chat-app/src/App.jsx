@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// Importing pages based on your file structure
-import LoginPage from './pages/login_page';
+// Importing pages with consistent lowercase paths to match filenames
+import LoginPage from './pages/loginpage';
 import AuthCallback from './pages/authcallback';
-import ChatPage from './pages/chatPage'; // A necessary page for your app
-import HomePage from './pages/homePage'; // A necessary page for your app
+import ChatPage from './pages/chatpage'; // Corrected from chatPage
+import HomePage from './pages/homepage'; // Corrected from homePage
 
 function App() {
   return (
