@@ -12,7 +12,7 @@ const AuthCallback = () => {
         if(token)
         {
             localStorage.setItem('authtoken', token);
-            navigate('/');
+            navigate('/app');
         }
         else{
             navigate('/login');

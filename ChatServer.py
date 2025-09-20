@@ -48,7 +48,6 @@ async def websocket_handler(request):
     connected_clients[ws] = user_info
     print(f"[DEBUG] Total connected clients: {len(connected_clients)}")
 
-
     try:
         # 4. Listen for incoming messages
         async for msg in ws:
@@ -86,20 +85,23 @@ async def websocket_handler(request):
 async def google_login(request):
     """Initiates the Google OAuth2 login flow."""
     print("\n[DEBUG] Hit /login/google endpoint. Initiating OAuth flow.")
-    
+
+    # VITAL DEBUG STEP: Print the exact URI being used at runtime.
+    print(f"[!!!! IMPORTANT DEBUG !!!!] The REDIRECT_URI being used is: '{REDIRECT_URI}'")
+
     if not os.path.exists('client_secret.json'):
         print("[ERROR] 'client_secret.json' not found on the server.")
         return web.Response(text="OAuth client_secret.json not found on server.", status=500)
-
+    
     flow = Flow.from_client_secrets_file(
         'client_secret.json',
         scopes=['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email', 'openid'],
-        redirect_uri=REDIRECT_URI
+        redirect_uri=REDIRECT_URI  # This is the variable we are printing above
     )
     authorization_url, state = flow.authorization_url()
     print(f"[DEBUG] Generated Google authorization URL. Redirecting user...")
-    # print(f"       -> URL: {authorization_url}") # Uncomment for full URL
     return web.HTTPFound(authorization_url)
+
 
 # --- Google OAuth Callback ---
 async def google_callback(request):
@@ -141,7 +143,6 @@ async def google_callback(request):
     frontend_callback_url = "https://buzz-line-indol.vercel.app/auth/callback"
     final_redirect_url = f"{frontend_callback_url}?token={app_jwt}"
     print(f"[DEBUG] Redirecting user back to frontend...")
-    # print(f"       -> URL: {final_redirect_url}") # Uncomment for full URL
     return web.HTTPFound(final_redirect_url)
 
 # --- AioHTTP App Setup ---
@@ -166,3 +167,4 @@ if __name__ == "__main__":
         print("---------------------------")
         print(f"✅ Starting server on http://0.0.0.0:{port}")
         web.run_app(app, host="0.0.0.0", port=port)
+
