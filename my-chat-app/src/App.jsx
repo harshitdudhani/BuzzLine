@@ -1,7 +1,7 @@
     // src/App.js
     import React, { useState, useEffect, useRef } from 'react';
     import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
-    import LoginPage from './LoginPage';
+    import LoginPage from './login_page';
     import AuthCallback from './authcallback';
 
     // IMPORTANT: Replace with your deployed backend URL (without http/https)
