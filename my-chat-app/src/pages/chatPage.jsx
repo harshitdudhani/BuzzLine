@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 // Import the smaller UI components
-import ChatHeader from '../components/chatheader.jsx';
-import MessageList from '../components/messagelist.jsx';
-import MessageForm from '../components/messageform.jsx';
+import ChatHeader from '../components/chatHeader.jsx';
+import MessageList from '../components/messageList.jsx';
+import MessageForm from '../components/messageForm.jsx';
 
 // --- Configuration ---
 // IMPORTANT: Replace this with your deployed backend's public host name
