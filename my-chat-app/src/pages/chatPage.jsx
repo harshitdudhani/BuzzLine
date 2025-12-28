@@ -9,7 +9,7 @@ import MessageForm from '../components/messageForm.jsx';
 
 // --- Configuration ---
 // IMPORTANT: Replace this with your deployed backend's public host name
-const BACKEND_HOST = "buzzline-backend.onrender.com";
+const BACKEND_HOST = "stoppably-unjudicable-neta.ngrok-free.app";
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);

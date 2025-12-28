@@ -122,7 +122,7 @@ async def google_callback(request):
         print("[DEBUG] Access token fetched successfully.")
     except Exception as e:
         print(f"[ERROR] Critical error fetching token from Google: {e}")
-        return web.HTTPFound("https://buzz-line-indol.vercel.app/login?error=auth_failed")
+        return web.HTTPFound("http://localhost:5173/login?error=auth_failed")
 
     # Fetch user profile
     session = flow.authorized_session()
@@ -139,8 +139,8 @@ async def google_callback(request):
     app_jwt = jwt.encode(payload, JWT_SECRET, algorithm="HS256")
     print(f"[DEBUG] Generated application JWT for '{payload['name']}': {app_jwt[:30]}...")
 
-    # Redirect user back to the frontend with the JWT
-    frontend_callback_url = "https://buzz-line-indol.vercel.app/auth/callback"
+    # Redirect user back to the frontend with the JWT   
+    frontend_callback_url = "http://localhost:5173/auth/callback"
     final_redirect_url = f"{frontend_callback_url}?token={app_jwt}"
     print(f"[DEBUG] Redirecting user back to frontend...")
     return web.HTTPFound(final_redirect_url)

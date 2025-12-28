@@ -12,12 +12,12 @@ const AuthCallback = () => {
         if (token) {
             // CORRECTED: Use the same key 'authtoken' consistently.
             localStorage.setItem('authtoken', token);
-            navigate('/app');
+            navigate('/home');
         } else {
             console.error("Authentication failed: No token received.");
             navigate('/login');
         }
-    }, [location, navigate]);
+    }, [location]);
 
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
